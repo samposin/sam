@@ -1,0 +1,317 @@
+@import '_variables';
+
+#sidebar-left {
+	overflow-y: visible !important;
+    width : $leftSidebarWidth;
+    > .item {
+        padding : 12px 10px 3px 24px;
+    }
+    .header {
+        display : flex;
+        align-items : center;
+        justify-content : space-between;
+        .floating {
+            display : flex;
+            align-items : center;
+            .dropdown { display : none; }
+            .menu {
+                left : -25px;
+                top : 116%;
+                box-shadow : 0px 0px 5px rgba(0, 0, 0, 0.1) !important;
+                border : 1px solid #ccc;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: -16px;
+                    left: 50%;
+                    margin-left: -8px;
+                    border-width: 8px;
+                    border-style: solid;
+                    border-color: transparent transparent #fff transparent;
+                }
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: -17px;
+                    left: 50%;
+                    margin-left: -9px;
+                    border-width: 8px;
+                    width: 0;
+                    height: 0;
+                    border: 9px solid transparent;
+                    border-bottom-color: rgba(0, 0, 0, 1);
+                }
+                .item {
+                    background : #fff !important;
+                    padding : 14px 17px !important;
+                    border-radius : 4px !important;
+                }
+                .text {
+                    font-weight : 600;
+                    color : #555;
+                }
+            }
+        }
+    }
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+#button-close {
+	right: -37px;
+	top: 97px;
+	border-radius: 0px 4px 4px 0px;
+	padding: 0px;
+	width: $sidebarToggleWidth;
+	height: 53px;
+
+	position: absolute;
+	// right: -39px;
+	// top: 80px;
+	// border-radius: 0px 4px 4px 0px;
+	// padding: 0px;
+	// width: 35px;
+	// height: 60px;
+	background-color: white;
+    box-shadow : inset 2px 0px 9px rgba(0, 0, 0, 0.18);
+	i {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0px;
+		height: 100%;
+        width : 100%;
+		font-size: 14px;
+		&:hover {
+			color: $accent;
+		}
+	}
+}
+
+.circle-initials {
+	border-radius: 50%;
+	background-color: coral;
+	height: 35px !important;
+	width: 35px !important;
+	margin-right: 10px;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.menu-section {
+    padding : 16px 12px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+    .layer-toggle-container.active {
+        display : flex !important;
+        flex-wrap : wrap;
+        width : 102%;
+        .layer-toggle {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -ms-user-select: none;
+            
+            flex-grow : 1;
+            min-width : 49%;
+            display : flex;
+            justify-content : center;
+            align-items : center;
+            padding : 4px 4px;
+            margin : 3px 1% 3px 0;
+            background : #fff;
+            border : 1px solid #EBEBEB;
+            border-radius : 50px;
+            font-size : 12px;
+            font-weight : 600;
+            color : #555;
+            cursor : pointer;
+            &.active {
+                color : #fff;
+                background : $accent;
+            }
+        }
+        &:after {
+            content : '';
+            flex-grow : 100;
+        }
+    }
+    &.visualizations {
+        .divider {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        > .visualization-item.checked label:before {
+            border-color : $accent !important;
+        }
+        .visualization-item {
+            padding : 14px;
+            margin : 2px 0;
+            width: 100%;
+            background : $bgGray;
+            cursor : pointer;
+            &.checked { background : $accentFade; }
+            label {
+                font-weight : 600;
+                color : #555555 !important;
+                text-align: start;
+                padding-left: 0px !important;
+                cursor : pointer;
+                &:before, &:after {
+                    left : auto;
+                    right : 0px;
+                    top : 0px;
+                    height : 16px;
+                    width : 16px;
+                    border-radius : 2px;
+                }
+                &:before { border-color : #555 !important; }
+                &:after { color : $accent !important; }
+            }
+            &.accordion {
+                .title {
+                    display : flex;
+                    align-items : center;
+                    justify-content : space-between;
+                    padding : 0 !important;
+                    &.active {
+                        .chevron { transform : rotate(-180deg); }
+                    }
+                    .circular {
+                        display : flex;
+                        justify-content : center;
+                        align-items : center;
+                        padding : 0 !important;
+                        margin : 0 8px 0 auto;
+                        background : #fff;
+                        font-weight : 600;
+                        &.active {
+                            background : $accent;
+                            color : #fff;
+                        }
+                    }
+                    .chevron { color : #333; }
+                    .parent-check {
+                        .checkbox { margin-left : 4px; }
+                        label:before { border-color : #555 !important; }
+                        
+                        .checked label:before { border-color : $accent !important; }
+                    }
+                }
+                .content {
+                    margin-top : 6px;
+                }
+            }
+        }
+    }
+    &.tools {
+        border-top: 1px solid gainsboro;
+        padding-top : 14px;
+        .tool-cards {
+            display : grid;
+            grid-template-rows : 0fr 0fr 0fr;
+            grid-template-columns : auto auto auto auto;
+            grid-gap : 12px;
+            justify-content : space-between;
+            width : 100%;
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                // justify-content: center;
+            }
+            p {
+                font-size: 11px;
+                color : #000;
+            }
+            button.ui.button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin : 0 0 3px 0;
+                height: 52px;
+                width: 52px;
+                background : $bgGray;
+                color : #777;
+                &.secondary { // Active
+                    background : $accent;
+                    img {
+                        filter : invert(1);
+                    }
+                }
+                img {
+                    filter : invert(0.4);
+                }
+            }
+        }
+        .tool-icon {
+            height: 20px;
+            width: 22px;
+        }
+    }
+}
+
+
+#geocoder-menu {
+	flex-direction: column;
+	background-color: white;
+	position: absolute !important;
+	bottom: 0;
+	width: 100%;
+	border-top: 1px solid gainsboro;
+	height: 100px !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    button.ui.button.locate-btn {
+        position: absolute;
+        left : 28px;
+        bottom : 22px;
+        z-index: 10;
+        padding: 0px;
+        background: white;
+        img {
+          height: 21px;
+          filter : invert(0.4);
+        }
+    }
+    .mapboxgl-ctrl-geocoder input[type='text']{
+      padding : 13px 13px 12px 46px;
+      font-size: 16px;
+      font-weight : 500;
+      font-family : $mainFont;
+    }
+    .mapboxgl-ctrl-geocoder .geocoder-pin-right * {
+        opacity : 0.5;
+    }
+}
+
+.mapboxgl-ctrl-geocoder .geocoder-icon-search {
+  display: none;
+}
+
+.mapboxgl-ctrl-geolocate{
+  display: none !important;
+}
+
+.mapboxgl-ctrl-geocoder {
+	ul {
+		top: -160px;
+	}
+}
+.mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
+	width: 100%;
+    box-shadow : none;
+    border : 1px solid #ccc;
+}
